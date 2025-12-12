@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import logo from "../images/Top_Notch_Africa_Logo-removebg-preview.png";
 
 export default function Footer() {
   const footerLinks = {
@@ -31,7 +32,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
               <img
-                src="/Gooo01.png"
+                src={logo}
                 alt="Top Notch Africa"
                 className="w-10 h-10 object-contain"
               />

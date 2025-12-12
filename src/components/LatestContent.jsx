@@ -91,12 +91,12 @@ export default function LatestContent() {
     activeTab === "All"
       ? content
       : content.filter((item) => {
-          if (activeTab === "Videos") return item.type === "video";
-          if (activeTab === "Playlists") return item.type === "playlist";
-          if (activeTab === "Photo Galleries") return item.type === "gallery";
-          if (activeTab === "Articles") return item.type === "article";
-          return true;
-        });
+        if (activeTab === "Videos") return item.type === "video";
+        if (activeTab === "Playlists") return item.type === "playlist";
+        if (activeTab === "Photo Galleries") return item.type === "gallery";
+        if (activeTab === "Articles") return item.type === "article";
+        return true;
+      });
 
   const handleContentClick = (item, index) => {
     if (item.type === "video") {
@@ -114,9 +114,9 @@ export default function LatestContent() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-2">Latest</h2>
+          <h2 className="text-4xl font-bold text-green-700 mb-2">Latest</h2>
           <p className="text-gray-600 text-lg">
-            Discover the newest content from MTV EMA
+            Discover the newest content from Top Notch Africa
           </p>
         </div>
 
@@ -128,11 +128,10 @@ export default function LatestContent() {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`py-4 px-2 border-b-2 font-medium text-sm whitespace-nowrap transition-colors ${
-                    activeTab === tab
-                      ? "border-gray-900 text-gray-900"
-                      : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                  }`}
+                  className={`py-4 px-2 border-b-2 font-medium text-sm whitespace-nowrap transition-colors ${activeTab === tab
+                    ? "border-red-600 text-red-600"
+                    : "border-transparent text-gray-500 hover:text-red-500 hover:border-red-300"
+                    }`}
                 >
                   {tab}
                 </button>
@@ -150,33 +149,35 @@ export default function LatestContent() {
               onClick={() => handleContentClick(item, index)}
             >
               {/* Content Card */}
-              <div className="relative bg-gray-200 aspect-video rounded-lg overflow-hidden mb-4 group-hover:bg-gray-300 transition-colors">
-                {/* Thumbnail placeholder */}
-                <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-500 flex items-center justify-center">
-                  <div className="text-center text-gray-700">
-                    <div className="mb-2">{getContentIcon(item.type)}</div>
-                    <div className="text-xs uppercase tracking-wider">
-                      {item.type}
+              <div className="relative african-pattern-shadow rounded-lg mb-4 z-0">
+                <div className="relative bg-gray-200 aspect-video rounded-lg overflow-hidden group-hover:bg-gray-300 transition-colors z-10">
+                  {/* Thumbnail placeholder */}
+                  <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-500 flex items-center justify-center">
+                    <div className="text-center text-gray-700">
+                      <div className="mb-2">{getContentIcon(item.type)}</div>
+                      <div className="text-xs uppercase tracking-wider">
+                        {item.type}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Content overlay */}
-                {getContentMeta(item) && (
-                  <div className="absolute bottom-3 right-3 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-xs">
-                    {getContentMeta(item)}
+                  {/* Content overlay */}
+                  {getContentMeta(item) && (
+                    <div className="absolute bottom-3 right-3 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-xs">
+                      {getContentMeta(item)}
+                    </div>
+                  )}
+
+                  {/* Category tag */}
+                  <div className="absolute top-3 left-3 bg-white bg-opacity-95 text-green-700 px-2 py-1 rounded text-xs font-bold uppercase shadow-sm">
+                    {item.category}
                   </div>
-                )}
-
-                {/* Category tag */}
-                <div className="absolute top-3 left-3 bg-white bg-opacity-90 text-gray-900 px-2 py-1 rounded text-xs font-medium">
-                  {item.category}
                 </div>
               </div>
 
               {/* Content Info */}
               <div className="space-y-2">
-                <h3 className="font-semibold text-gray-900 group-hover:text-gray-600 transition-colors line-clamp-2">
+                <h3 className="font-semibold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-2">
                   {item.title}
                 </h3>
                 <div className="flex items-center text-sm text-gray-500">
@@ -190,7 +191,7 @@ export default function LatestContent() {
 
         {/* Load More Button */}
         <div className="text-center mt-12">
-          <button className="px-8 py-3 border-2 border-gray-900 text-gray-900 font-medium rounded hover:bg-gray-900 hover:text-white transition-colors">
+          <button className="px-8 py-3 border-2 border-yellow-500 text-yellow-600 font-medium rounded hover:bg-yellow-500 hover:text-white transition-colors">
             Load More Content
           </button>
         </div>

@@ -1,15 +1,18 @@
 import { Menu, Search } from "lucide-react";
 import { useState } from "react";
+import logo from "../images/Top_Notch_Africa_Logo-removebg-preview.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Videos", href: "/videos" },
-    { label: "Photos", href: "/gallery" },
     { label: "News", href: "/news" },
-    { label: "Artists", href: "/artists" },
-    { label: "Awards", href: "/awards" },
+    { label: "Entertainment", href: "/entertainment" },
+    { label: "Culture", href: "/culture" },
+    { label: "Innovation", href: "/innovation" },
+    { label: "Lifestyle", href: "/lifestyle" },
+    { label: "Videos", href: "/videos" },
+    { label: "Gallery", href: "/gallery" },
   ];
 
   return (
@@ -19,7 +22,7 @@ export default function Header() {
           {/* Logo */}
           <a href="/" className="flex items-center">
             <img
-              src="/Gooo01.png"
+              src={logo}
               alt="Top Notch Africa"
               className="w-12 h-12 object-contain"
             />
@@ -34,7 +37,7 @@ export default function Header() {
               <a
                 key={index}
                 href={item.href}
-                className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+                className="text-gray-700 hover:text-red-600 font-medium transition-colors"
               >
                 {item.label}
               </a>
@@ -64,7 +67,7 @@ export default function Header() {
                   key={index}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-700 hover:text-gray-900 font-medium transition-colors py-2"
+                  className="text-gray-700 hover:text-red-600 font-medium transition-colors py-2"
                 >
                   {item.label}
                 </a>

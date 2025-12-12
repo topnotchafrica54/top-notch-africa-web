@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+  input,
+  textarea,
+  select,
+  button {
+    @apply outline-none focus:outline-none;
+  }
+}
+
+@layer utilities {
+  .african-pattern-shadow {
+    position: relative;
+  }
+
+  .african-pattern-shadow::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: -6px;
+    right: 6px;
+    bottom: -6px;
+    z-index: -1;
+    background: repeating-linear-gradient(135deg,
+        #166534 0px,
+        /* green-700 */
+        #166534 10px,
+        #eab308 10px,
+        /* yellow-500 */
+        #eab308 20px,
+        #dc2626 20px,
+        /* red-600 */
+        #dc2626 30px,
+        #000000 30px,
+        #000000 40px);
+    border-radius: inherit;
+  }
+}
